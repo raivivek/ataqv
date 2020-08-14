@@ -41,8 +41,8 @@ html {
 }
 
 body {
-    background: #444;
-    color: #fff;
+    color: #444;
+    background: #fff;
     position: relative;
 }
 
@@ -73,7 +73,7 @@ button:hover, a.dt-button:hover, a.dt-button:hover:not(.disabled) {
 }
 
 a {
-    color: #fff;
+    color: #444;
 }
 
 dt {
@@ -773,7 +773,8 @@ td:last-child *[data-hovertext]:hover::after,
 }
 
 #plotSampleList > nav {
-    background: #333;
+    background: #eee;
+    color: #444;
     padding: 1em;
     margin: 0;
     border-radius: 0.25em;
@@ -826,7 +827,7 @@ td:last-child *[data-hovertext]:hover::after,
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
-    background: #222;
+    background: #fff;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
     position: relative;
@@ -840,8 +841,8 @@ td:last-child *[data-hovertext]:hover::after,
 }
 
 .plotBackground {
-    fill: #111;
-    color: #fff;
+    fill: #fff;
+    color: #222;
 }
 
 .axis {
@@ -856,7 +857,7 @@ td:last-child *[data-hovertext]:hover::after,
 .axis path,
 .axis line {
     fill: none;
-    stroke: #444;
+    stroke: #ddd;
     shape-rendering: crispEdges;
 }
 
@@ -865,7 +866,7 @@ td:last-child *[data-hovertext]:hover::after,
 }
 
 .axis text {
-    fill: #eee;
+    fill: #444;
 }
 
 .legendItem.highlight {
@@ -900,7 +901,7 @@ td:last-child *[data-hovertext]:hover::after,
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    background: #333;
+    background: #eee;
     padding: 1em;
     border-bottom-left-radius: 0.25em;
     border-bottom-right-radius: 0.25em;
@@ -939,7 +940,7 @@ td:last-child *[data-hovertext]:hover::after,
 }
 
 #legend {
-    color: #fff;
+    background: #fff;
     margin: 0 1em 0 2em;
     position: relative;
     font-size: 0.75rem;

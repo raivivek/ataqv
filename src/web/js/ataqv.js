@@ -100,7 +100,10 @@ let ataqv = (function() {
     function copyPlotForExport(svgElement, colorFunction, plotTitle) {
         let clone = svgElement.cloneNode(true);
         copyStylesInline(clone, svgElement);
-        clone.style.background = '#222';
+        let bgColor = getComputedStyle(document.querySelector('.plotBackground')).fill;
+        let fgColor = getComputedStyle(document.querySelector('.plotBackground')).color;
+
+        clone.style.background = bgColor;
 
         let d3Clone = d3.select(clone);
 
@@ -110,6 +113,7 @@ let ataqv = (function() {
         let cloneHeight = Number.parseInt(d3Clone.attr('height'));
 
         let main = d3Clone.select('g:first-child');
+
         let oldTransform = main.attr('transform');
         let transformTokens = oldTransform.match(/translate\((\d+),(\d+)\)/);
         let yTranslate = (transformTokens.length === 3) ? Number.parseInt(transformTokens[2]) : 15;
@@ -124,7 +128,7 @@ let ataqv = (function() {
             .attr('y', 20)
             .style('text-anchor', 'middle')
             .style('font-size', '16px')
-            .attr('fill', '#fff')
+            .attr('fill', fgColor)
             .attr('font-family', "'Source Sans Pro', sans-serif")
             .text(plotTitle);
 
@@ -153,7 +157,7 @@ let ataqv = (function() {
 
         d3Clone
             .insert('rect', ':first-child')
-            .attr('fill', '#222')
+            .attr('fill', bgColor)
             .attr('height', cloneHeight)
             .attr('width', cloneWidth);
 
@@ -871,7 +875,7 @@ let ataqv = (function() {
                 let svgElement = plotElement.querySelector('.plotRoot');
                 let copy = copyPlotForExport(svgElement, color, plotTitle);
 
-                let canvas = document.getElementById('exportCanvas')
+                let canvas = document.getElementById('exportCanvas');
                 let svgBox = svgElement.getBBox();
                 let svgWidth = svgBox.width;
                 let svgHeight = svgBox.height;

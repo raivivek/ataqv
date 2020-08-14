@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html color-mode="light">
     <head>
         <meta charset="UTF-8">
         <title>ataqv results viewer</title>
@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/datatables.min.css"/>
         <link rel="stylesheet" href="css/datatables.fontawesome.css"/>
 
-        <link rel="stylesheet" href="css/ataqv.css">
+        <link rel="stylesheet" href="css/ataqv.css" id="change_css"/>
 
         <script src="js/d3.min.js"></script>
         <script src="js/jszip.min.js"></script>
@@ -70,8 +70,11 @@
                             <div>
                                 <h2>
                                     <span>Samples<span id="sampleCount"></span></span>
-                                    <div class="controls horizontal">                                    <button class="showall">Show all</button>
+                                    <div class="controls horizontal">
+                                      <button class="showall">Show all</button>
                                         <button class="hideall">Hide all</button>
+                                        <button id="theme-light">Light Theme</button>
+                                        <button id="theme-dark">Dark Theme</button>
                                     </div>
                                 </h2>
                                 <div class="controls horizontal">
@@ -627,11 +630,21 @@
                 </div>
             </div>
         </div>
-        <canvas id="exportCanvas" width="1280" height="720"></canvas>
+        <canvas id="exportCanvas"></canvas>
         <a id="exportDownload" target="_blank"></a>
         <script>
             function initialize() {
                 ataqv.initialize();
+            };
+
+            document.getElementById('theme-light').onclick = function () { 
+                console.log("light");
+                document.getElementById('change_css').href = 'css/light.css';
+            };
+
+            document.getElementById('theme-dark').onclick = function () { 
+                console.log("dark");
+                document.getElementById('change_css').href = 'css/ataqv.css';
             };
 
             function ready(fn) {
